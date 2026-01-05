@@ -30,6 +30,8 @@ body {
     display: block;
     margin: 40px auto 20px;
     -webkit-tap-highlight-color: transparent;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.1s forwards;
 }
 
 #profilePicture img {
@@ -58,13 +60,16 @@ body {
     text-align: center;
     text-decoration: none;
     margin-top: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.3s forwards;
 }
 
 #links {
     max-width: 675px;
     width: auto;
     display: block;
-    margin: 27px auto;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 .link {
@@ -72,19 +77,27 @@ body {
     background-color: var(--linkBg);
     color: var(--accentColor);
     border: solid var(--linkBorder) 2px;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
     text-align: center;
     display: block;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    padding: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+    padding: 18px 20px;
     text-decoration: none;
     transition: all .3s ease;
     -webkit-tap-highlight-color: transparent;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
 }
+
+.link:nth-child(1) { animation-delay: 0.5s; }
+.link:nth-child(2) { animation-delay: 0.65s; }
+.link:nth-child(3) { animation-delay: 0.8s; }
+.link:nth-child(4) { animation-delay: 0.95s; }
+.link:nth-child(5) { animation-delay: 1.1s; }
 
 @media (hover: hover) {
     .link:hover {
@@ -101,11 +114,22 @@ body {
     transform: translateY(0);
 }
 
-/* Animation */
+/* Animations */
 @keyframes transitionAnimation {
     0% {
         opacity: 0;
         transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
     }
     100% {
         opacity: 1;
